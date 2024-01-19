@@ -16,7 +16,13 @@
 <body>
     <button class="button-002" onclick="location.href='touroku.php'">新しい曲を追加</button>
     <button class="button-002" onclick="location.href='touroku_category.php'">今あるカテゴリーに曲を追加</button>
-
+    <div class="setumei">
+    操作説明<br>
+    ・左上のセレクトボックスで1ページに表示される曲数を選択できる<br>
+    ・曲名とアーティストの横の矢印で名前順にできる<br>
+    ・右下の数字でページ移動ができる<br>
+    ・右のボックスで検索ができる
+    </div>
     <?php
         $pdo = new PDO($connect, USER, PASS);
         $sql = $pdo->query('SELECT * FROM Music');
@@ -37,6 +43,7 @@
             echo '<td>', htmlspecialchars($row['category']), '</td>';
             echo '<td class="td_video">';
             echo '<iframe width="300" height="168.75" src="' . htmlspecialchars($row['picture']) . '" frameborder="0" allowfullscreen></iframe>';
+            // echo htmlspecialchars($row['picture']);
             echo '</td>';
 //427 240 
             // echo '<td>', htmlspecialchars($row['URL']), '</td>';
@@ -64,12 +71,15 @@
         // DataTableの初期化
         $(document).ready(function() {
             $('#example').DataTable({
+                "lengthMenu": [ [5, 10, 20, 30], [5, 10, 20, 30] ],
                 // "order": [[0, "asc"], [1, "asc"]], // 曲名を優先的にソートし、次にアーティストをソート
                 "aoColumnDefs": [
                     { 'bSortable': false, 'aTargets': [2, 3, 4] } // 画像、URL、操作、削除の列をソート対象外に
                 ]
             });
         });
+
+
     </script>
 </body>
 </html>
