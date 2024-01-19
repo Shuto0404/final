@@ -50,3 +50,8 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTable thead .sorting_desc, table.dataTable thead .sorting_asc_disabled, table.dataTable thead .sorting_desc_disabled {
   background-size: 40px;
 }
+.setumei{
+  position: relative;
+    left: 30%;
+    top: -40px;
+}
